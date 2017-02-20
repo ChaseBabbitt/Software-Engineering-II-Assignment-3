@@ -82,8 +82,8 @@ public class Player {
 	}
 
 	public void removeAttackingCard(Card attackingcard) {
-		// TODO Auto-generated method stub
 		
+		attackingcards.remove(attackingcard);
 	}
 
 	public void removeDefendingCard(Card defendingcard) {

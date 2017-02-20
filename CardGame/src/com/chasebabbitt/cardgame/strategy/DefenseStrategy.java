@@ -31,6 +31,7 @@ public class DefenseStrategy implements Strategy{
 			for(Card c: attackingcards){
 				incomingdamage+=c.getAttackPoints();
 			}
+			//attackingcard = attackingcards.remove(0);
 			attackingcard = attackingcards.get(0);
 			//attackingcard = attackingcards.first();
 			for(Card c:attackingcards){
