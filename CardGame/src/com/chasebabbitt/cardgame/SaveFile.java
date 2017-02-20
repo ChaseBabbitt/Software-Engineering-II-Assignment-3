@@ -21,7 +21,7 @@ public class SaveFile {
     Default Constructor for NEW GAME with blank slate Player object
     */
     public SaveFile(){
-        profilePlayer = new Player(); 
+        profilePlayer = new Player("Player 1", 20); 
         campaignLevel = 0;
     }
     
@@ -34,6 +34,9 @@ public class SaveFile {
         campaignLevel = sv.getCampaignLevel();
     }
     
+    /*
+    When the player wins a game, their progress will be incremented up by 1
+    */
     public void WonAGame(){
         campaignLevel++;
     }
