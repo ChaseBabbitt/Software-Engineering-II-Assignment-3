@@ -19,9 +19,7 @@ public class CardGame {
 		
 		player.setRandomCaseD();
 		player.setOpponent(other);
-
 		player.setSmartDefenseStrategy();
-
 		other.setRandomCaseA();
 		other.setOpponent(player);
 		

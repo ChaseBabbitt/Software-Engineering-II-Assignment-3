@@ -3,16 +3,19 @@ package com.chasebabbitt.cardgame.player;
 import java.util.ArrayList;
 
 import com.chasebabbitt.cardgame.cards.Card;
-import com.chasebabbitt.cardgame.cards.CardGenerator;
+import com.chasebabbitt.cardgame.cards.CardFactory;
+
 
 public class Deck {
 	
 	ArrayList<Card> cards;
 	
-	public Deck(){
+	CardFactory cardgenerator;//= new HexCardFactory();
+	public Deck(CardFactory cardgenerator){
+		this.cardgenerator = cardgenerator;
 		cards = new ArrayList<Card>();
 		for(int i = 0;i<60;i++){
-			cards.add(CardGenerator.getCard());
+			cards.add(cardgenerator.createCard());
 		}		
 	}
 	/**
