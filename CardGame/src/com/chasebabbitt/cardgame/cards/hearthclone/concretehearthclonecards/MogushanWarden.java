@@ -1,3 +1,5 @@
+package com.chasebabbitt.cardgame.cards.hearthclone.concretehearthclonecards;
+
 public class MogushanWarden extends Card {
 	public MogushanWarden(){
 		name = "Mogu'shan Warden";
