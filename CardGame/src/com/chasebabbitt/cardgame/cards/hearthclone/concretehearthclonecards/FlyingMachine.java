@@ -1,3 +1,5 @@
+package com.chasebabbitt.cardgame.cards.hearthclone.concretehearthclonecards;
+
 public class FlyingMachine extends Card {
 	public FlyingMachine(){
 		name = "Flying Machine";
