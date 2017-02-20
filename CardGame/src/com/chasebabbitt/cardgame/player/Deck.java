@@ -11,10 +11,10 @@ public class Deck {
 	ArrayList<Card> cards;
 	
 	CardFactory cardgenerator;//= new HexCardFactory();
-	public Deck(CardFactory cardgenerator){
+	public Deck(CardFactory cardgenerator, int decksize){
 		this.cardgenerator = cardgenerator;
 		cards = new ArrayList<Card>();
-		for(int i = 0;i<60;i++){
+		for(int i = 0;i<decksize;i++){
 			cards.add(cardgenerator.createCard());
 		}		
 	}
