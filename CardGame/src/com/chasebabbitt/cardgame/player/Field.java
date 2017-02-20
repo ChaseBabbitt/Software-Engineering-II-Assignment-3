@@ -3,10 +3,12 @@ package com.chasebabbitt.cardgame.player;
 import java.util.ArrayList;
 
 import com.chasebabbitt.cardgame.cards.Card;
-import com.chasebabbitt.cardgame.cards.CardGenerator;
+import com.chasebabbitt.cardgame.cards.CardFactory;
+import com.chasebabbitt.cardgame.cards.hex.HexCardFactory;
 
 public class Field {
 	ArrayList<Card> cards;
+	CardFactory cardgenerator = new HexCardFactory();
 	
 	/**
 	 * Constructor for Field
@@ -26,14 +28,14 @@ public class Field {
 	 * adds a random card to the field
 	 */
 	public void addCard(){
-		cards.add(CardGenerator.getCard());
+		cards.add(cardgenerator.createCard());
 	}
 	/**
 	 * 
 	 * @param index the index number of the card to be added
 	 */
 	public void addCard(int index){
-		cards.add(CardGenerator.getCard(index));
+		cards.add(cardgenerator.createCard(index));
 	}
 
 	/**

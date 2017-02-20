@@ -1,4 +1,4 @@
-package com.chasebabbitt.cardgame.cards.concrete;
+package com.chasebabbitt.cardgame.cards.hex.concretecards;
 
 import com.chasebabbitt.cardgame.cards.AbilitiesDecorator;
 import com.chasebabbitt.cardgame.cards.Card;

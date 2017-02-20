@@ -10,8 +10,8 @@ import com.chasebabbitt.cardgame.player.Player;
 	 */
 public class BlockedAttack implements Move{
 	/**
-	 * attacker is the attacking card and defender is the defending card, the defending card may be full to represent
-	 * not defending an attack when it would be unwise to do so
+	 * attackingCard is the attacking card and defendingCard is the defending card, attackingplayer is the attacking player
+	 *  and defendingplayer is the defending player;
 	 */
 		Player attackingplayer, defendingplayer;
 		Card attackingcard, defendingcard;

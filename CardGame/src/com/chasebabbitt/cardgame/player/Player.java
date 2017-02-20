@@ -3,6 +3,8 @@ package com.chasebabbitt.cardgame.player;
 import java.util.ArrayList;
 
 import com.chasebabbitt.cardgame.cards.Card;
+import com.chasebabbitt.cardgame.cards.CardFactory;
+import com.chasebabbitt.cardgame.cards.hex.HexCardFactory;
 import com.chasebabbitt.cardgame.strategy.*;
 
 public class Player {
@@ -28,15 +30,19 @@ public class Player {
 		ArrayList<Card> attackingcards;
 		// A List of Card objects that are currently available for defense
 		ArrayList<Card> defendingcards;
-	
+		//
+		CardFactory cardgenerator;
+		
 	//initialize player
 	public Player(String name,int health){
 		this.name = name;
 		this.startinghealth = health;
 		this.health = startinghealth;
 		
+		cardgenerator = new HexCardFactory();
+		
 		strategy = new DumbStrategy();
-		deck = new Deck();
+		deck = new Deck(cardgenerator);
 		field = new Field();
 		hand = new Hand();
 		graveyard = new Graveyard();
