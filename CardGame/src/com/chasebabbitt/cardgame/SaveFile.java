@@ -1,3 +1,6 @@
+package com.chasebabbitt.cardgame;
+import com.chasebabbitt.cardgame.player.Player;
+
 /**
  * The SaveFile class holds a Player object to be carried over between 
  * games within a single play session. When a new Duel is started, it will 
