@@ -1,3 +1,5 @@
+package com.chasebabbitt.cardgame.cards.hearthclone.concretehearthclonecards;
+
 public class StormwindKnight extends Card {
 	public StormwindKnight(){
 		name = "Stormwind Knight";
