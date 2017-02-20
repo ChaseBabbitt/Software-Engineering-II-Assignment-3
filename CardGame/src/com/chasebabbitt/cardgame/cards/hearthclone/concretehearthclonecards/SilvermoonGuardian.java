@@ -1,3 +1,5 @@
+package com.chasebabbitt.cardgame.cards.hearthclone.concretehearthclonecards;
+
 public class SilvermoonGuardian extends Card {
 	public SilvermoonGuardian(){
 		name = "Silvermoon Guardian";
