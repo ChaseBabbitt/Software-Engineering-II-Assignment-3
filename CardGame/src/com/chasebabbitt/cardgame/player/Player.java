@@ -30,8 +30,12 @@ public class Player {
 		ArrayList<Card> attackingcards;
 		// A List of Card objects that are currently available for defense
 		ArrayList<Card> defendingcards;
-		//
+		// A reference to a CardFactory class
 		CardFactory cardgenerator;
+		// The maximum resources the player currently has
+		int maxresources;
+		// The current value of the the resources the player currently has
+		int currentresources;
 		
 	//initialize player
 	public Player(String name,int health){
@@ -42,7 +46,7 @@ public class Player {
 		cardgenerator = new HexCardFactory();
 		
 		strategy = new DumbStrategy();
-		deck = new Deck(cardgenerator);
+		deck = new Deck(cardgenerator,60);
 		field = new Field();
 		hand = new Hand();
 		graveyard = new Graveyard();
@@ -114,6 +118,7 @@ public class Player {
 		System.out.println(name+"'s Field:             Health: "+health+"/"+startinghealth);
 		field.toConsole();
 		System.out.println(name+"'s Hand:            Deck: "+deck.size());
+		hand.toConsole();
 		System.out.println("**************************************************************");
 	}
 	
@@ -225,5 +230,31 @@ public class Player {
 	 */
 	public void setSmartDefenseStrategy(){
 		strategy = new DefenseStrategy();
+	}
+	/**
+	 * Increments the Player's max resources
+	 */
+	public void incrementResources(){
+		maxresources++;
+	}
+	/**
+	 * Method to make current resources = maxresources, to be called at the beginning of a turn
+	 */
+	public void refreshResources(){
+		currentresources = maxresources;
+	}
+	/**
+	 * Getter method for currentresources
+	 * @return currentresources
+	 */
+	public int getResources(){
+		return currentresources;
+	}
+	/**
+	 * Method for decreasing currentresources by the passed cost value
+	 * @param cost the cost of a card being played
+	 */
+	public void useResources(int cost){
+		currentresources -= cost;
 	}
 }
