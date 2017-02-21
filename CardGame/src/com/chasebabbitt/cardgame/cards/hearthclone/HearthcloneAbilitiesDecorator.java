@@ -20,10 +20,13 @@ public class HearthcloneAbilitiesDecorator extends AbilitiesDecorator{
 	}
 	
 	public void dealDamage(int damage){
-		((HearthcloneAbilitiesDecorator) card).dealDamage(damage);
+		card.dealDamage(damage);
 	}
 	public int getHealth(){
 		return card.getHealth();
+	}
+	public void healDamage(int heal){
+		card.healDamage(heal);
 	}
 
 }

@@ -8,6 +8,7 @@ public class IronfurGrizzly extends Card{
 		attackpoints = 3;
 		cost = 3;
 		defensepoints = 3;
+		tapped = true;
 	}
 
 }

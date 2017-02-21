@@ -24,16 +24,43 @@ public class IronfurGrizzlyTest {
 	}
 	
 	/**
-	 *  Tests getHealth and dealDamage methods
+	 *  Tests getHealth dealDamage and healDamage methods
 	 *  Expected results: getHealth() will initially be 3
 	 *  dealDamage(2) method will be called
 	 *  getHealth() will then return 1
+	 *  healDamage(1) method will be called
+	 *  getHealth() will then return 2
+	 *  healDamage(100) method will be called
+	 *  getHealth() will then return 3
 	 */
 	@Test 
 	public void test2(){
 		assertEquals(card.getHealth(),3);
 		card.dealDamage(2);
-		assertEquals(card.getHealth(),1);		
+		assertEquals(card.getHealth(),1);
+		card.healDamage(1);
+		assertEquals(card.getHealth(),2);
+		card.healDamage(100);
+		assertEquals(card.getHealth(),3);
+		
+	}
+	/**
+	 * Tests untap and exhaust methods
+	 * 
+	 * tappedStatus() should initially return true
+	 * untap() method will then be called
+	 * tappedStatus() should now return false
+	 * exhaust() method will then be called
+	 * tappedStatus should now return true
+	 */
+	@Test
+	public void test3(){
+		assertEquals(card.tappedStatus(),true);
+		card.untap();
+		assertEquals(card.tappedStatus(),false);
+		card.exhaust();
+		assertEquals(card.tappedStatus(),true);
+		
 	}
 
 }

@@ -18,4 +18,16 @@ public class DamageDecoration extends HearthcloneAbilitiesDecorator{
 	public int getHealth(){
 		return card.getDefensePoints()-damage;
 	}
+	
+	/**
+	 * Heals an amount of damage from the card
+	 * Will not heal more damage than card has health
+	 * @param heal the maximum amount that can be healed
+	 */
+	public void healDamage(int heal){
+		while(damage>0 && heal > 0){
+			damage--;
+			heal--;
+		}
+	}
 }
