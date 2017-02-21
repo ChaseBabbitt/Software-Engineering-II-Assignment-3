@@ -75,4 +75,11 @@ public abstract class Card {
 	}
 	//Base case of a comes into play ability, does nothing
 	public void comesIntoPlay(){} //
+	public void dealDamage(int damage) {
+		// TODO Auto-generated method stub
+		
+	}
+	public int getHealth() {
+		return defensepoints;
+	}
 }
