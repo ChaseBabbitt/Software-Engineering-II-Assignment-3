@@ -26,4 +26,9 @@ public class Hand {
 			return cards.remove(0);
 		return null;
 	}
+		//Added a way to remove cards from hand
+	public Card playCard(Card card){
+		cards.remove(card);
+		return card;
+	}
 }
