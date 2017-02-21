@@ -1,0 +1,23 @@
+package com.chasebabbitt.cardgame.cards.hearthclone.concretecards;
+
+import com.chasebabbitt.cardgame.cards.Card;
+import com.chasebabbitt.cardgame.cards.hearthclone.HearthcloneAbilitiesDecorator;
+
+public class DivineShieldDecoration extends HearthcloneAbilitiesDecorator{
+	
+	private boolean shieldactive;
+	public DivineShieldDecoration(Card card) {
+		super(card);
+		shieldactive = true;
+		keywords = HearthcloneAbilitiesDecorator.DIVINESHIELD;
+	}
+	public void dealDamage(int damage){
+		if(shieldactive){
+			shieldactive = false;
+			keywords = 0;
+			return;
+		}
+		card.dealDamage(damage);
+	}
+
+}

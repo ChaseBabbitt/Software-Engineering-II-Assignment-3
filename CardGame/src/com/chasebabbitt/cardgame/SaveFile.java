@@ -45,7 +45,7 @@ public class SaveFile {
     Blank slates the SaveFile's Player object to "reset" the player's progress
     */
     public void ProfileReset(){
-        profilePlayer = new Player(); 
+       // profilePlayer = new Player(); 
     }
     
     /*

@@ -18,5 +18,12 @@ public class HearthcloneAbilitiesDecorator extends AbilitiesDecorator{
 	public HearthcloneAbilitiesDecorator(Card card) {
 		super(card);
 	}
+	
+	public void dealDamage(int damage){
+		((HearthcloneAbilitiesDecorator) card).dealDamage(damage);
+	}
+	public int getHealth(){
+		return card.getHealth();
+	}
 
 }
