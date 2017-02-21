@@ -9,5 +9,6 @@ public class MogushanWarden extends Card {
 		defensepoints = 7;
 		cost = 4;
 		keywords = 0; //taunt
+		tapped = true;
 	}
 }

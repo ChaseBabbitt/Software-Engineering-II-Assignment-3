@@ -9,5 +9,6 @@ public class StormwindKnight extends Card {
 		defensepoints = 5;
 		cost = 4;
 		keywords = 0; //charge
+		tapped = true;
 	}
 }

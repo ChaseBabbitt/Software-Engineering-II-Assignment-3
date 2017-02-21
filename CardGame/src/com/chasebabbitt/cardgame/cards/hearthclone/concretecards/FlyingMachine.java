@@ -9,6 +9,6 @@ public class FlyingMachine extends Card {
 		defensepoints = 4;
 		cost = 3;
 		keywords = 0; //windfury
-		
+		tapped = true;
 	}
 }

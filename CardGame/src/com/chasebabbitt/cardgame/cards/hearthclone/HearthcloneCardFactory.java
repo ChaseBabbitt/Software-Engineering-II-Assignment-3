@@ -22,7 +22,7 @@ public class HearthcloneCardFactory implements CardFactory{
 		
 		switch(index){
 		case 0:
-			card = new DamageDecoration(new FlyingMachine());	
+			card = new WindfuryDecoration(new DamageDecoration(new FlyingMachine()));	
 			break;
 		case 1:
 			card = new DamageDecoration(new GnomereganInfantry());
@@ -47,11 +47,13 @@ public class HearthcloneCardFactory implements CardFactory{
 	@Override
 	public Card createCard(String cardname) {
 		if(cardname.equals("Ironfur Grizzly"))
-				return new TauntDecoration(new DamageDecoration(new IronfurGrizzly()));
+			return new TauntDecoration(new DamageDecoration(new IronfurGrizzly()));
 		else if(cardname.equals("Mogushan Warden"))
-				return new TauntDecoration(new DamageDecoration(new MogushanWarden()));
+			return new TauntDecoration(new DamageDecoration(new MogushanWarden()));
 		else if(cardname.equals("Silvermoon Guardian"))
-				return new DivineShieldDecoration(new DamageDecoration(new SilvermoonGuardian()));
+			return new DivineShieldDecoration(new DamageDecoration(new SilvermoonGuardian()));
+		else if(cardname.equals("Flying Machine"))
+			return new WindfuryDecoration(new DamageDecoration(new FlyingMachine()));	
 		return null;
 	}
 
