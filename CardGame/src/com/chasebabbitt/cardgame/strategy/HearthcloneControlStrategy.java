@@ -7,17 +7,13 @@ import java.util.ArrayList;
 public class HearthcloneControlStrategy implements Strategy {
 	/**
 	 *  Strategy for Control:
-	 *  Play smallest costing cards first.
-	 *  attack in any fight where you win first
-	 *  attack in any fight where you trade
-	 *  attack the weakest defender with your weakest attacker
-	 *  if there are no legal targets attack the player
+	 *  Play the  cards you can until your out of resources
+	 *  attack any  
 	 */
 	public Move getMove(Player Defender, Player Attacker){
 		Move move = null;
 		Card attack = null;
 		//Plays the cheapest card it can
-		
 		if(CanPlayCard(Attacker)){
 			ArrayList<Card> playable = PlayableCard(Attacker);
 			for(Card c : playable){
@@ -27,55 +23,66 @@ public class HearthcloneControlStrategy implements Strategy {
 			move = new PlayCard(attack,Attacker);
 			return move;
 		}
+		//Get a list of ready cards and see who they can attack
 		ArrayList<Card> ReadyCards = ReadyCard(Attacker);
 		if(ReadyCards!=null){
 			ArrayList<Card> LegalTargets = null;
+			//check first if any cards have taunt
 			for(Card c: Defender.getCards()){
-				//In case of taunt only allow cards with taunt
-				//needs to be done;
-				//else list all legal cards
+				if(c.getKeywords()==1){
+					LegalTargets.add(c);
+				}
+			}
+			//if there is no taunt, all creature on the board are legal targets
+			if(LegalTargets == null){
 				LegalTargets = Defender.getCards();
 			}
-
-			// go through the legal targets and find the best card to attack each one
-			for(Card c: LegalTargets){
-				for(Card k: ReadyCards){
-					if(k.getAttackPoints()>=c.getDefensePoints()&&k.getDefensePoints()>c.getAttackPoints()){
-						move = new BlockedAttack(k,c,Attacker,Defender);
-						k.exhaust();
-						return move;
-					}
-				}
-			}	
-			for(Card c: LegalTargets){
-				for(Card k: ReadyCards){
-					if(k.getAttackPoints()>=c.getDefensePoints()){
-						move = new BlockedAttack(k,c,Attacker,Defender);
-						k.exhaust();
-						return move;
-					}
-				}
-			}
+			
+			//if the opponent has any creatures on the field, see if you can destroy one without killing your creature
 			if(LegalTargets!= null){
-					Card target = LegalTargets.get(0);
-					for(Card c: LegalTargets){
-						if(target.getDefensePoints()>c.getDefensePoints()){
-							target = c;
-						}
-					}
-					attack = ReadyCards.get(0);
+				for(Card c: LegalTargets){
 					for(Card k: ReadyCards){
-						if(attack.getAttackPoints()>k.getAttackPoints()){
-							attack = k;
+						if(k.getAttackPoints()>=c.getDefensePoints()&&k.getDefensePoints()>c.getAttackPoints()){
+							move = new BlockedAttack(k,c,Attacker,Defender);
+							k.exhaust();
+							return move;
 						}
 					}
-					move = new BlockedAttack(attack, target, Attacker, Defender);
-					return move;
+				}
+				//if not, see if you can kill any of their cards
+				for(Card c: LegalTargets){
+					for(Card k: ReadyCards){
+						if(k.getAttackPoints()>=c.getDefensePoints()){
+							move = new BlockedAttack(k,c,Attacker,Defender);
+							k.exhaust();
+							return move;
+						}
+					}
+				}
+				// if not, use your weakest card to attack their weakest defender
+				Card target = LegalTargets.get(0);
+				for(Card c: LegalTargets){
+					if(target.getDefensePoints()>c.getDefensePoints()){
+						target = c;
+					}
+				}
+				attack = ReadyCards.get(0);
+				for(Card k: ReadyCards){
+					if(attack.getAttackPoints()>k.getAttackPoints()){
+						attack = k;
+					}
+				}
+				move = new BlockedAttack(attack, target, Attacker, Defender);
+				return move;
 			}
-			//If there are no good targets to attack, Attack the player;
-			move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
-			return move;
+			
+			//if there are no creatures on the board attack the player
+			if(LegalTargets ==null){
+				move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
+				return move;
+			}
 		}
+		// return null to pass the turn
 		return move;
 	}
 	/**

@@ -6,10 +6,6 @@ import com.chasebabbitt.cardgame.cards.Card;
 import com.chasebabbitt.cardgame.player.Player;
 
 public class HearthCloneAggroStrategy implements Strategy {
-	/**
-	*  Aggro: Plays the strongest attackers it can
-	*  Attacks the enemy directly if there are no taunting targets
-	**/
 
 	@Override
 	public Move getMove(Player Defender, Player Attacker){
@@ -35,18 +31,16 @@ public class HearthCloneAggroStrategy implements Strategy {
 			ArrayList<Card> LegalTargets = null;
 			
 			for(Card c: Defender.getCards()){
-				/*
-				 * if(c.hasKeyword(1){
-				 * 		LegalTargets.add(c);
-				 * else
-				 */
-				LegalTargets = Defender.getCards();
+				if(c.getKeywords()==1){
+					LegalTargets.add(c);
+				}
 			}
 			//if there are no cards with taunt attack the player
-			ReadyCards.get(0).exhaust();
-			move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
-			return move;
-		
+			if(LegalTargets == null){
+				ReadyCards.get(0).exhaust();
+				move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
+				return move;
+			}
 		}
 		return move;
 	}
