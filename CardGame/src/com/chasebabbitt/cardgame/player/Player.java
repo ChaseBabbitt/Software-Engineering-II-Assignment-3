@@ -257,4 +257,17 @@ public class Player {
 	public void useResources(int cost){
 		currentresources -= cost;
 	}
+	/**
+	*	A way to view the players hand of cards and play a card
+	* 	-RK
+	**/
+	public ArrayList<Card> getHand(){
+		return hand.cards;
+	}	/**
+	 * Plays the selected card in the Player's hand
+	 */
+	public void playCard(Card card) {
+		field.addCard(hand.playCard(card));
+		
+	}
 }
