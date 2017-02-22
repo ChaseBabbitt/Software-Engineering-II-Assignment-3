@@ -7,8 +7,11 @@ import java.util.ArrayList;
 public class HearthcloneControlStrategy implements Strategy {
 	/**
 	 *  Strategy for Control:
-	 *  Play the  cards you can until your out of resources
-	 *  attack any  
+	 *  Play smallest costing cards first.
+	 *  attack in any fight where you win first
+	 *  attack in any fight where you trade
+	 *  attack the weakest defender with your weakest attacker
+	 *  if there are no legal targets attack the player
 	 */
 	public Move getMove(Player Defender, Player Attacker){
 		Move move = null;
