@@ -6,6 +6,10 @@ import com.chasebabbitt.cardgame.cards.Card;
 import com.chasebabbitt.cardgame.player.Player;
 
 public class HearthCloneAggroStrategy implements Strategy {
+	/**
+	*  Aggro: Plays the strongest attackers it can
+	*  Attacks the enemy directly if there are no taunting targets
+	**/
 
 	@Override
 	public Move getMove(Player Defender, Player Attacker){
