@@ -1,77 +1,48 @@
 package com.chasebabbitt.cardgame.strategy;
 
-import com.chasebabbitt.cardgame.cards.Card;
-import com.chasebabbitt.cardgame.player.Player;
 import java.util.ArrayList;
 
-public class HearthcloneControlStrategy implements Strategy {
-	/**
-	 *  Strategy for Control:
-	 *  Play the  cards you can until your out of resources
-	 *  attack any  
-	 */
+import com.chasebabbitt.cardgame.cards.Card;
+import com.chasebabbitt.cardgame.player.Player;
+
+public class HearthCloneAggroStrategy implements Strategy {
+
+	@Override
 	public Move getMove(Player Defender, Player Attacker){
 		Move move = null;
 		Card attack = null;
-		//Plays the cheapest card it can
-		
+		//Plays the strongest attacker card it can
 		if(CanPlayCard(Attacker)){
-			ArrayList<Card> playable = PlayableCard(Attacker);
-			for(Card c : playable){
-				if(c.getCost()<attack.getCost())
-					attack = c;
+			ArrayList<Card> possiblecards = PlayableCard(Attacker);
+			attack = possiblecards.get(0);
+			for(Card c : possiblecards){
+				if(c.getAttackPoints()<attack.getAttackPoints())
+						attack = c;
 			}
 			move = new PlayCard(attack,Attacker);
 			return move;
 		}
+		
+		attack = null;
+		//Get All cards that can be attacked
 		ArrayList<Card> ReadyCards = ReadyCard(Attacker);
+		
 		if(ReadyCards!=null){
 			ArrayList<Card> LegalTargets = null;
+			
 			for(Card c: Defender.getCards()){
-				//In case of taunt only allow cards with taunt
-				//needs to be done;
-				//else list all legal cards
+				/*
+				 * if(c.hasKeyword(1){
+				 * 		LegalTargets.add(c);
+				 * else
+				 */
 				LegalTargets = Defender.getCards();
 			}
-
-			// go through the legal targets and find the best card to attack each one
-			for(Card c: LegalTargets){
-				for(Card k: ReadyCards){
-					if(k.getAttackPoints()>=c.getDefensePoints()&&k.getDefensePoints()>c.getAttackPoints()){
-						move = new BlockedAttack(k,c,Attacker,Defender);
-						k.exhaust();
-						return move;
-					}
-				}
-			}	
-			for(Card c: LegalTargets){
-				for(Card k: ReadyCards){
-					if(k.getAttackPoints()>=c.getDefensePoints()){
-						move = new BlockedAttack(k,c,Attacker,Defender);
-						k.exhaust();
-						return move;
-					}
-				}
-			}
-			if(LegalTargets!= null){
-					Card target = LegalTargets.get(0);
-					for(Card c: LegalTargets){
-						if(target.getDefensePoints()>c.getDefensePoints()){
-							target = c;
-						}
-					}
-					attack = ReadyCards.get(0);
-					for(Card k: ReadyCards){
-						if(attack.getAttackPoints()>k.getAttackPoints()){
-							attack = k;
-						}
-					}
-					move = new BlockedAttack(attack, target, Attacker, Defender);
-					return move;
-			}
-			//If there are no good targets to attack, Attack the player;
+			//if there are no cards with taunt attack the player
+			ReadyCards.get(0).exhaust();
 			move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
 			return move;
+		
 		}
 		return move;
 	}
