@@ -1,6 +1,7 @@
 package com.chasebabbitt.cardgame.player;
 
 import com.chasebabbitt.cardgame.cards.hearthclone.HearthcloneCardFactory;
+import com.chasebabbitt.cardgame.strategy.Move;
 
 public class HearthclonePlayer extends Player {
 
@@ -48,6 +49,9 @@ public class HearthclonePlayer extends Player {
 		if (maxresources<10){
 			maxresources++;
 		}
+	}
+	public Move getMove(){
+		return null;
 	}
 
 }

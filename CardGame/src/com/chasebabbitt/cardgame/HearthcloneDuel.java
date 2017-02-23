@@ -5,10 +5,12 @@ import java.util.Scanner;
 
 import com.chasebabbitt.cardgame.player.HearthclonePlayer;
 import com.chasebabbitt.cardgame.player.Player;
+import com.chasebabbitt.cardgame.strategy.Move;
 
 public class HearthcloneDuel extends Duel {
 	
 	Scanner input;
+	Move move;
 	public HearthcloneDuel(HearthclonePlayer player1, HearthclonePlayer player2) {
 		super(player1, player2);
 		input = new Scanner(System.in);
@@ -40,6 +42,12 @@ public class HearthcloneDuel extends Duel {
 		System.out.print("\n\n\n\n\n\n");
 		player1.toConsole();
 		player2.toConsole();
+		move = attacker.getMove();
+		while(move!=null){
+			input.nextLine();
+			move.execute();
+			move = attacker.getMove();
+		}
 		input.nextLine();		
 	}
 
