@@ -1,3 +1,5 @@
+package com.chasebabbitt.cardgame;
+import com.chasebabbitt.cardgame.player.Player;
 
 import java.io.IOException;
 import org.junit.Before;
