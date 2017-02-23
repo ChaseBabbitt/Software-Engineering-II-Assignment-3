@@ -53,6 +53,9 @@ public class Player {
 		
 		attackingcards = new ArrayList<Card>();
 		defendingcards = new ArrayList<Card>();
+		
+		maxresources = 0;
+		currentresources = 0;
 	}
 
 	/**

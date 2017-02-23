@@ -10,6 +10,7 @@ public class DivineShieldDecoration extends HearthcloneAbilitiesDecorator{
 		super(card);
 		shieldactive = true;
 		keywords = HearthcloneAbilitiesDecorator.DIVINESHIELD;
+		name = "Divine Shield";
 	}
 	public void dealDamage(int damage){
 		if(shieldactive){
@@ -18,6 +19,11 @@ public class DivineShieldDecoration extends HearthcloneAbilitiesDecorator{
 			return;
 		}
 		card.dealDamage(damage);
+	}
+	public String toString(){
+		if(shieldactive)
+			return card.toString()+" "+name;
+		return card.toString();
 	}
 
 }

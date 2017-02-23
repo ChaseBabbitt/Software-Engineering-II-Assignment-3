@@ -22,7 +22,7 @@ public class HearthcloneGame {
 		
 		System.out.println( card.getHealth());
 		card.dealDamage(1);
-		System.out.println(((HearthcloneAbilitiesDecorator) card).getHealth());
+		System.out.println(card.getHealth());
 
 	}
 
