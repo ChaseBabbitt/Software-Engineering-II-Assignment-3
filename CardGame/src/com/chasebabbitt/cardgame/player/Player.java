@@ -272,4 +272,7 @@ public class Player {
 		field.addCard(hand.playCard(card));
 		
 	}
+	public void untap(){
+		field.untap();
+	}
 }

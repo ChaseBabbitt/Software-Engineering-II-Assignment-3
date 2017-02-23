@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.chasebabbitt.cardgame.cards.Card;
 import com.chasebabbitt.cardgame.player.Player;
 
-public class HearthCloneAggroControlStrategy {
+public class HearthCloneAggroControlStrategy implements Strategy{
 	
 	public Move getMove(Player Defender, Player Attacker){
 		Move move = null;

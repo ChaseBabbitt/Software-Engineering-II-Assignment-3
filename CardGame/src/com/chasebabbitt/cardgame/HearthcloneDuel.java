@@ -24,9 +24,11 @@ public class HearthcloneDuel extends Duel {
 
 	@Override
 	protected void beforeTurn(){
+		System.out.println("New Turn: "+attacker.getName()+" is attacking.");
 		attacker.incrementResources();
 		attacker.refreshResources();
 		attacker.drawCard();
+		attacker.untap();
 	}
 	
 	@Override
@@ -47,13 +49,14 @@ public class HearthcloneDuel extends Duel {
 		System.out.print("\n\n\n\n\n\n");
 		player1.toConsole();
 		player2.toConsole();
+		input.nextLine();	
 		move = attacker.getMove();
 		while(move!=null){
 			input.nextLine();
 			move.execute();
 			move = attacker.getMove();
 		}
-		input.nextLine();		
+		//input.nextLine();		
 	}
 
 }

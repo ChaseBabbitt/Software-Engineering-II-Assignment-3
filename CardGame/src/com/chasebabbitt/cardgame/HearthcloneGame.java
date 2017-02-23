@@ -2,6 +2,7 @@ package com.chasebabbitt.cardgame;
 
 
 import com.chasebabbitt.cardgame.player.HearthclonePlayer;
+import com.chasebabbitt.cardgame.player.Player;
 
 
 public class HearthcloneGame {
@@ -10,8 +11,12 @@ public class HearthcloneGame {
 	public static void main(String[] args) {
 		HearthclonePlayer player1 = new HearthclonePlayer("Player 1", 20);
 		HearthclonePlayer player2 = new HearthclonePlayer("Player 2", 20);
+		Player winner;
 		HearthcloneDuel duel = new HearthcloneDuel(player1,player2);
-		duel.play();
+		winner = duel.play();
+		System.out.println("\n********************************************");
+		System.out.println("*****"+winner.getName()+" won the duel.*****");
+		System.out.println("********************************************");
 	
 
 

@@ -73,6 +73,10 @@ public class Field {
 			cards.add(card);
 		
 	}
+	public void untap(){
+		for(Card c: cards)
+			c.untap();
+	}
 
 	
 }
