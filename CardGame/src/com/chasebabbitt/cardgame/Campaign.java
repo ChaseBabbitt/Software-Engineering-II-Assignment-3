@@ -1,6 +1,5 @@
-//Chase directory
-//include Player
-//include Duel
+package com.chasebabbitt.cardgame;
+import com.chasebabbitt.cardgame.player.Player;
 
 import java.io.*;
 import java.util.*;
