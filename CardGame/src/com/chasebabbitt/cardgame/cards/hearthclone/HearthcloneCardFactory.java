@@ -25,7 +25,7 @@ public class HearthcloneCardFactory implements CardFactory{
 			card = new WindfuryDecoration(new DamageDecoration(new FlyingMachine()));	
 			break;
 		case 1:
-			card = new DamageDecoration(new GnomereganInfantry());
+			card = new ChargeDecoration(new TauntDecoration(new DamageDecoration(new GnomereganInfantry())));
 			break;
 		case 2:
 			card = new TauntDecoration(new DamageDecoration(new IronfurGrizzly()));

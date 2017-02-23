@@ -10,6 +10,7 @@ public class WindfuryDecoration extends HearthcloneAbilitiesDecorator{
 		super(card);
 		windfuryattack = false;
 		keywords = HearthcloneAbilitiesDecorator.WINDFURY;
+		name = "Windfury";
 		
 	}
 	public void untap(){
@@ -23,6 +24,9 @@ public class WindfuryDecoration extends HearthcloneAbilitiesDecorator{
 			return;
 		}
 		card.exhaust();
+	}
+	public String toString(){
+		return card.toString()+" "+name;
 	}
 	
 

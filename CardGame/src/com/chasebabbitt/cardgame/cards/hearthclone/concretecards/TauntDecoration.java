@@ -8,6 +8,10 @@ public class TauntDecoration extends HearthcloneAbilitiesDecorator{
 	public TauntDecoration(Card card) {
 		super(card);
 		keywords = HearthcloneAbilitiesDecorator.TAUNT;
+		name = "Taunt";
+	}
+	public String toString(){
+		return card.toString()+" "+name;
 	}
 	
 }
