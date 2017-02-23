@@ -25,8 +25,8 @@ public class HearthcloneControlStrategy implements Strategy {
 		}
 		//Get a list of ready cards and see who they can attack
 		ArrayList<Card> ReadyCards = ReadyCard(Attacker);
-		if(ReadyCards!=null){
-			ArrayList<Card> LegalTargets = null;
+		if(ReadyCards.size()>0){
+			ArrayList<Card> LegalTargets = new ArrayList<Card>();
 			//check first if any cards have taunt
 			for(Card c: Defender.getCards()){
 				if(c.getKeywords()==1){
@@ -34,12 +34,12 @@ public class HearthcloneControlStrategy implements Strategy {
 				}
 			}
 			//if there is no taunt, all creature on the board are legal targets
-			if(LegalTargets == null){
+			if(LegalTargets.size() == 0){
 				LegalTargets = Defender.getCards();
 			}
 			
 			//if the opponent has any creatures on the field, see if you can destroy one without killing your creature
-			if(LegalTargets!= null){
+			if(LegalTargets.size() > 0){
 				for(Card c: LegalTargets){
 					for(Card k: ReadyCards){
 						if(k.getAttackPoints()>=c.getDefensePoints()&&k.getDefensePoints()>c.getAttackPoints()){
@@ -77,7 +77,7 @@ public class HearthcloneControlStrategy implements Strategy {
 			}
 			
 			//if there are no creatures on the board attack the player
-			if(LegalTargets ==null){
+			if(LegalTargets.size() == 0){
 				move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
 				return move;
 			}
@@ -103,7 +103,7 @@ public class HearthcloneControlStrategy implements Strategy {
 	 * @return a list of all cards that cost less than the players current resources
 	 */
 	private ArrayList<Card> PlayableCard(Player Attacker){
-		ArrayList<Card> playable = null;
+		ArrayList<Card> playable = new ArrayList<Card>();
 		for(Card c: Attacker.getHand()){
 			if(c.getCost()<Attacker.getResources()){
 				playable.add(c);
@@ -117,7 +117,7 @@ public class HearthcloneControlStrategy implements Strategy {
 	 * @return a list of ready cards on the players field
 	 */
 	private ArrayList<Card> ReadyCard(Player Attacker){
-		ArrayList<Card> untapped = null;
+		ArrayList<Card> untapped = new ArrayList<Card>();
 		for(Card c: Attacker.getCards()){
 			if(!c.tappedStatus()){
 				untapped.add(c);
