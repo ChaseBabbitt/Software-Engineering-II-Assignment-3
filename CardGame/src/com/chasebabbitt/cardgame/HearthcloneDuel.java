@@ -24,6 +24,14 @@ public class HearthcloneDuel extends Duel {
 	
 	@Override
 	protected Player findWinner() {
+		if(player1.getHealth()<=0){
+			input.close();
+			return player2;
+		}
+		else if(player2.getHealth()<=0){
+			input.close();
+			return player1;
+		}
 		return null;
 	}
 

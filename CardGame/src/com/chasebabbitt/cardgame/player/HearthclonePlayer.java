@@ -14,5 +14,40 @@ public class HearthclonePlayer extends Player {
 		cardgenerator = new HearthcloneCardFactory();
 		deck = new Deck(cardgenerator,30);
 	}
+	
+	public void toConsole(){
+		System.out.println("");
+		System.out.println("**************************************************************");
+		System.out.println(name+"'s Field:             Health: "+health+"/"+startinghealth);
+		field.toConsole();
+		System.out.println("Mana: "+manaToString());
+		System.out.println(name+"'s Hand:            Deck: "+deck.size());
+		hand.toConsole();
+		System.out.println("**************************************************************");
+	}
+	public String manaToString(){
+		String mana = new String();
+		int availablemana = currentresources;
+		int maxmana = maxresources;
+		while(maxmana>0){
+			mana = mana+"(";
+			if(availablemana>0){
+				availablemana--;
+				mana=mana+"#";
+			}
+			else
+				mana=mana+" ";
+			mana=mana+")";
+			maxmana--;
+			
+		}
+		System.out.println("Test");
+		return mana;
+	}
+	public void incrementResources(){
+		if (maxresources<10){
+			maxresources++;
+		}
+	}
 
 }

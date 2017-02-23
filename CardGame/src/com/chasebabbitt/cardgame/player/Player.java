@@ -44,7 +44,6 @@ public class Player {
 		this.health = startinghealth;
 		
 		cardgenerator = new HexCardFactory();
-		
 		strategy = new DumbStrategy();
 		deck = new Deck(cardgenerator,60);
 		field = new Field();
