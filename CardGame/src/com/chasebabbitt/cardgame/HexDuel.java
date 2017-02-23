@@ -36,7 +36,11 @@ public class HexDuel extends Duel {
 		
 		Move move = defender.getMove();
 		while(move!=null){
+			System.out.println("\n\n\n\n\n\n\n\n\n");
+			player1.toConsole();
+			player2.toConsole();
 			move.execute();
+			input.nextLine();
 			move = defender.getMove();
 		}
 	

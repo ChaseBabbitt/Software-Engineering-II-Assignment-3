@@ -1,6 +1,7 @@
 package com.chasebabbitt.cardgame.player;
 
 import com.chasebabbitt.cardgame.cards.hearthclone.HearthcloneCardFactory;
+import com.chasebabbitt.cardgame.strategy.HearthCloneAggroStrategy;
 import com.chasebabbitt.cardgame.strategy.Move;
 
 public class HearthclonePlayer extends Player {
@@ -14,6 +15,7 @@ public class HearthclonePlayer extends Player {
 		armor = 0;
 		cardgenerator = new HearthcloneCardFactory();
 		deck = new Deck(cardgenerator,30);
+		strategy = new HearthCloneAggroStrategy();
 	}
 	
 	public void toConsole(){
@@ -42,7 +44,6 @@ public class HearthclonePlayer extends Player {
 			maxmana--;
 			
 		}
-		System.out.println("Test");
 		return mana;
 	}
 	public void incrementResources(){
@@ -51,7 +52,7 @@ public class HearthclonePlayer extends Player {
 		}
 	}
 	public Move getMove(){
-		return null;
+		return strategy.getMove(this, opponent);
 	}
 
 }

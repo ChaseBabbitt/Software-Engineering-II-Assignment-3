@@ -14,7 +14,12 @@ public class HearthcloneDuel extends Duel {
 	public HearthcloneDuel(HearthclonePlayer player1, HearthclonePlayer player2) {
 		super(player1, player2);
 		input = new Scanner(System.in);
-		// TODO Auto-generated constructor stub
+		for(int i = 0;i<3;i++){
+			player1.drawCard();
+			player2.drawCard();
+		}
+		player1.setOpponent(player2);
+		player2.setOpponent(player1);
 	}
 
 	@Override

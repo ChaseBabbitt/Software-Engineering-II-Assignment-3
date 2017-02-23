@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.chasebabbitt.cardgame.cards.Card;
 import com.chasebabbitt.cardgame.cards.CardFactory;
-import com.chasebabbitt.cardgame.cards.hearthclone.HearthcloneAbilitiesDecorator;
 import com.chasebabbitt.cardgame.cards.hearthclone.HearthcloneCardFactory;
 
 public class GurubashiBerserkerTest {
