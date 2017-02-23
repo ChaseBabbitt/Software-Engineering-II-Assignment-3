@@ -42,6 +42,8 @@ public class HearthCloneAggroStrategy implements Strategy {
 						attack = k;
 					}
 				}
+				move = new BlockedAttack(attack,LegalTargets.get(0),Attacker,Defender);
+				return move;
 			}
 			//if there are no cards with taunt attack the player
 			if(LegalTargets.size()==0){
