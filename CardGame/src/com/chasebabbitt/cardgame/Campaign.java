@@ -167,4 +167,7 @@ public class Campaign {
         return winCount;
     }
     
+    public ArrayList<Player> getOpponents() {
+        return opponents;
+    }
 }
