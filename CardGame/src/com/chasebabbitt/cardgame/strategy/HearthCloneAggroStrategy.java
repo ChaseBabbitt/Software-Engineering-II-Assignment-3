@@ -27,16 +27,24 @@ public class HearthCloneAggroStrategy implements Strategy {
 		//Get All cards that can be attacked
 		ArrayList<Card> ReadyCards = ReadyCard(Attacker);
 		
-		if(ReadyCards!=null){
-			ArrayList<Card> LegalTargets = null;
+		if(ReadyCards.size()>0){
+			ArrayList<Card> LegalTargets = new ArrayList<Card>();
 			
 			for(Card c: Defender.getCards()){
 				if(c.getKeywords()==1){
 					LegalTargets.add(c);
 				}
 			}
+			if(LegalTargets.size()>0){
+				attack = ReadyCards.get(0);
+				for(Card k : ReadyCards){
+					if(attack.getAttackPoints()>k.getAttackPoints()){
+						attack = k;
+					}
+				}
+			}
 			//if there are no cards with taunt attack the player
-			if(LegalTargets == null){
+			if(LegalTargets.size()==0){
 				ReadyCards.get(0).exhaust();
 				move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
 				return move;
@@ -62,7 +70,7 @@ public class HearthCloneAggroStrategy implements Strategy {
 	 * @return a list of all cards that cost less than the players current resources
 	 */
 	private ArrayList<Card> PlayableCard(Player Attacker){
-		ArrayList<Card> playable = null;
+		ArrayList<Card> playable = new ArrayList<Card>();
 		for(Card c: Attacker.getHand()){
 			if(c.getCost()<Attacker.getResources()){
 				playable.add(c);
@@ -76,7 +84,7 @@ public class HearthCloneAggroStrategy implements Strategy {
 	 * @return a list of ready cards on the players field
 	 */
 	private ArrayList<Card> ReadyCard(Player Attacker){
-		ArrayList<Card> untapped = null;
+		ArrayList<Card> untapped = new ArrayList<Card>();
 		for(Card c: Attacker.getCards()){
 			if(!c.tappedStatus()){
 				untapped.add(c);
