@@ -22,7 +22,6 @@ public class Campaign {
     private Player player;
     private ArrayList<Player> opponents;
     private int winCount;
-    private String saveFilePath;
     
     public Campaign() throws FileNotFoundException, IOException{
         //default values
@@ -101,7 +100,7 @@ public class Campaign {
             System.out.println("Defeated all opponents, you win!\nWinCount: " + getWinCount());
         else{
             Player currentOpponent = opponents.remove(0);
-            Duel currentDuel = new Duel(getPlayer(), currentOpponent);
+            HearthcloneDuel currentDuel = new HearthcloneDuel(getPlayer(), currentOpponent);
             Player winner = currentDuel.play();
             if(winner.getName().equals(getPlayer().getName()))
                 winCount++;
