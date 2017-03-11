@@ -36,7 +36,7 @@ public class IronfurGrizzlyTest {
 	@Test 
 	public void test2(){
 		assertEquals(card.getHealth(),3);
-		card.dealDamage(2);
+		card.dealDamage(2,null,null);
 		assertEquals(card.getHealth(),1);
 		card.healDamage(1);
 		assertEquals(card.getHealth(),2);

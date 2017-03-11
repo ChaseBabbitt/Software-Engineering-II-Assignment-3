@@ -2,6 +2,7 @@ package com.chasebabbitt.cardgame.cards.hearthclone.concretecards;
 
 import com.chasebabbitt.cardgame.cards.Card;
 import com.chasebabbitt.cardgame.cards.hearthclone.HearthcloneAbilitiesDecorator;
+import com.chasebabbitt.cardgame.player.Player;
 
 public class DivineShieldDecoration extends HearthcloneAbilitiesDecorator{
 	
@@ -12,13 +13,13 @@ public class DivineShieldDecoration extends HearthcloneAbilitiesDecorator{
 		keywords = HearthcloneAbilitiesDecorator.DIVINESHIELD;
 		name = "Divine Shield";
 	}
-	public void dealDamage(int damage){
+	public void dealDamage(int damage, Player owner, Player opponent){
 		if(shieldactive){
 			shieldactive = false;
 			keywords = 0;
 			return;
 		}
-		card.dealDamage(damage);
+		card.dealDamage(damage,owner,opponent);
 	}
 	public String toString(){
 		if(shieldactive)

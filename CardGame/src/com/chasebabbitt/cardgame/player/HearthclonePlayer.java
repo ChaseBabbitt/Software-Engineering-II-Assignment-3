@@ -1,10 +1,7 @@
 package com.chasebabbitt.cardgame.player;
 
 import com.chasebabbitt.cardgame.cards.hearthclone.HearthcloneCardFactory;
-import com.chasebabbitt.cardgame.strategy.HearthCloneAggroControlStrategy;
-import com.chasebabbitt.cardgame.strategy.HearthCloneAggroStrategy;
-import com.chasebabbitt.cardgame.strategy.HearthcloneControlStrategy;
-import com.chasebabbitt.cardgame.strategy.Move;
+import com.chasebabbitt.cardgame.strategy.*;
 
 public class HearthclonePlayer extends Player {
 
@@ -17,9 +14,9 @@ public class HearthclonePlayer extends Player {
 		armor = 0;
 		cardgenerator = new HearthcloneCardFactory();
 		deck = new Deck(cardgenerator,30);
-		//strategy = new HearthCloneAggroStrategy();
+		strategy = new HearthCloneAggroStrategy();
 		//strategy = new HearthcloneControlStrategy();
-		strategy = new HearthCloneAggroControlStrategy();
+		//strategy = new HearthCloneAggroControlStrategy();
 	}
 	
 	public void toConsole(){
@@ -57,6 +54,22 @@ public class HearthclonePlayer extends Player {
 	}
 	public Move getMove(){
 		return strategy.getMove(this, opponent);
+	}
+	
+	public void setManualStrategy(){
+		strategy = new HearthCloneManualStrategy();
+	}
+	
+	public void setControlStrategy(){
+		strategy = new HearthcloneControlStrategy();
+	}
+	
+	public void setAggroControlStrategy(){
+		strategy = new HearthCloneAggroControlStrategy();
+	}
+	
+	public void setAggroStrategy(){
+		strategy = new HearthCloneAggroStrategy();
 	}
 
 }

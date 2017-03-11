@@ -2,6 +2,7 @@ package com.chasebabbitt.cardgame.cards.hearthclone.concretecards;
 
 import com.chasebabbitt.cardgame.cards.Card;
 import com.chasebabbitt.cardgame.cards.hearthclone.HearthcloneAbilitiesDecorator;
+import com.chasebabbitt.cardgame.player.Player;
 
 public class DamageDecoration extends HearthcloneAbilitiesDecorator{
 
@@ -11,9 +12,12 @@ public class DamageDecoration extends HearthcloneAbilitiesDecorator{
 		
 	}
 
-	public void dealDamage(int damage){
+	public void dealDamage(int damage, Player owner, Player opponent){
 		this.damage += damage;
 	}
+	/*public void dealDamage(int damage){
+		this.damage += damage;
+	}*/
 	
 	public int getHealth(){
 		return card.getDefensePoints()-damage;
