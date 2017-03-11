@@ -13,6 +13,7 @@ public class FaerieDragon extends Card {
 		defensepoints = 2;
 		cost = 2;
 		keywords = 0;
+		tapped=true;
 	}
 
 }

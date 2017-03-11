@@ -13,6 +13,7 @@ public class AngryChicken extends Card {
 		defensepoints = 1;
 		cost = 1;
 		keywords = 0;
+		tapped=true;
 		//Enrage: +5 attack
 	}
 }

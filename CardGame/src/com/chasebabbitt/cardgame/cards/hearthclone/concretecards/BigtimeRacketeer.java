@@ -12,6 +12,7 @@ public class BigtimeRacketeer extends Card{
 		defensepoints = 1;
 		cost = 6;
 		keywords = 0;
+		tapped=true;
 		//Battlecry: summon a 6/6 Orge
 	}
 
