@@ -57,6 +57,7 @@ public class Field {
 	 * Prints the contents of the Field to the console
 	 */
 	public void toConsole(){
+		
 		for(Card c:cards){
 			System.out.println(c.toString());
 		}
@@ -71,6 +72,10 @@ public class Field {
 		if(card!=null)
 			cards.add(card);
 		
+	}
+	public void untap(){
+		for(Card c: cards)
+			c.untap();
 	}
 
 	

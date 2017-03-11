@@ -1,5 +1,6 @@
 package com.chasebabbitt.cardgame.cards;
 
+import com.chasebabbitt.cardgame.player.Player;
 
 public abstract class Card {
 
@@ -74,5 +75,14 @@ public abstract class Card {
 		tapped = false;
 	}
 	//Base case of a comes into play ability, does nothing
-	public void comesIntoPlay(){} //
+	public void comesIntoPlay(Player owner, Player opponent){} //
+	public void dealDamage(int damage) {}
+	public void dealDamage(int damage, Player owner, Player opponent){}
+	public int getHealth() {
+		return defensepoints;
+	}
+	public void healDamage(int health) {
+		// TODO Auto-generated method stub
+		
+	}
 }

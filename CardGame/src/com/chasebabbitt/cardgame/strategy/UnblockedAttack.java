@@ -18,6 +18,7 @@ public class UnblockedAttack implements Move {
 	public void execute() {
 		System.out.println(attackingcard.getName()+" attacks and is not blocked!");
 		defendingplayer.dealDamage(attackingcard.getAttackPoints());
+		attackingcard.exhaust();
 		
 	}
 

@@ -44,7 +44,6 @@ public class Player {
 		this.health = startinghealth;
 		
 		cardgenerator = new HexCardFactory();
-		
 		strategy = new DumbStrategy();
 		deck = new Deck(cardgenerator,60);
 		field = new Field();
@@ -53,6 +52,9 @@ public class Player {
 		
 		attackingcards = new ArrayList<Card>();
 		defendingcards = new ArrayList<Card>();
+		
+		maxresources = 0;
+		currentresources = 0;
 	}
 
 	/**
@@ -269,5 +271,8 @@ public class Player {
 	public void playCard(Card card) {
 		field.addCard(hand.playCard(card));
 		
+	}
+	public void untap(){
+		field.untap();
 	}
 }

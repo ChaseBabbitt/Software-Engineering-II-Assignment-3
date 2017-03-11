@@ -31,4 +31,11 @@ public class Hand {
 		cards.remove(card);
 		return card;
 	}
+	/**
+	 * Getter for the number of cards in hand
+	 * @return
+	 */
+	public int size(){
+		return cards.size();
+	}
 }

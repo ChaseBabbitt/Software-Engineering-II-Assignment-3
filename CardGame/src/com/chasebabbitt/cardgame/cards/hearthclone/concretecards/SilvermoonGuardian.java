@@ -9,5 +9,6 @@ public class SilvermoonGuardian extends Card {
 		defensepoints = 3;
 		cost = 4;
 		keywords = 0; //shield
+		tapped = true;
 	}
 }

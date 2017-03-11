@@ -1,5 +1,6 @@
 package com.chasebabbitt.cardgame.cards;
 
+import com.chasebabbitt.cardgame.player.Player;
 
 public abstract class AbilitiesDecorator extends Card {
 	protected Card card;
@@ -57,7 +58,7 @@ public abstract class AbilitiesDecorator extends Card {
 	}
 	//Getter method for tapped
 	public boolean tappedStatus(){
-		return card.tapped;
+		return card.tappedStatus();
 	}
 	//Setter method for tapped
 	public void exhaust(){
@@ -71,8 +72,8 @@ public abstract class AbilitiesDecorator extends Card {
 	 * Base method for comes into play abilities, passes the instruction on to the next card
 	 * Override this method to create a decoration that will have a comes into play effect.
 	 */
-	public void comesIntoPlay(){
-		card.comesIntoPlay();
+	public void comesIntoPlay(Player owner, Player opponent){
+		card.comesIntoPlay(owner, opponent);
 	}
 
 	

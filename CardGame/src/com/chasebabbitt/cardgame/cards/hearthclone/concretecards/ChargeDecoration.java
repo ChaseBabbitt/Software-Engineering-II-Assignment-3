@@ -7,5 +7,9 @@ public class ChargeDecoration extends HearthcloneAbilitiesDecorator {
 	public ChargeDecoration(Card card) {
 		super(card);
 		keywords = HearthcloneAbilitiesDecorator.CHARGE;
+		name = "Charge";
+	}
+	public String toString(){
+		return card.toString()+" "+name;
 	}
 }

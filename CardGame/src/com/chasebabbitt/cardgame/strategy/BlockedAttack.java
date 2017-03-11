@@ -38,6 +38,7 @@ public class BlockedAttack implements Move{
 		@Override
 		public void execute() {
 			System.out.println(attackingcard.getName()+" attacks and is blocked by "+defendingcard.getName());
+			attackingcard.exhaust();
 			if(attackingcard.getAttackPoints()>=defendingcard.getDefensePoints()){
 				System.out.println(attackingcard.getName()+" defeats "+ defendingcard.getName());
 				//Do methods to kill defending card

@@ -9,5 +9,6 @@ public class GnomereganInfantry extends Card {
 		defensepoints = 4;
 		cost = 3;
 		keywords = 0; //charge && taunt
+		tapped = true;
 	}
 }
