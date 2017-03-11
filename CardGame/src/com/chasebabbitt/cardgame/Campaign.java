@@ -19,13 +19,13 @@ import java.util.*;
  * @author jtownsend
  */
 public class Campaign {
-    private Player player;
-    private ArrayList<Player> opponents;
+    private HearthclonePlayer player;
+    private ArrayList<HearthclonePlayer> opponents;
     private int winCount;
     
     public Campaign() throws FileNotFoundException, IOException{
         //default values
-        player = new Player();
+        player = new HearthclonePlayer();
         opponents = new ArrayList<>();
         winCount = 0;
         
@@ -39,7 +39,7 @@ public class Campaign {
     */
     public void NewGame() throws IOException{
         //initialize new player and opponents
-        player = new Player("Player 1", 20);
+        player = new HearthclonePlayer("Player 1", 20);
         addOpponents(3);
         winCount = 0;
         
@@ -77,7 +77,7 @@ public class Campaign {
         int numOpponents = Integer.parseInt(br.readLine());
         
         //populate local information with info from file
-        player = new Player(name, startingHealth);
+        player = new HearthclonePlayer(name, startingHealth);
         winCount = wins;
         addOpponents(numOpponents);
     }
@@ -87,7 +87,7 @@ public class Campaign {
     */
     public void addOpponents(int num){
         for(int i = 0; i < num; i++){
-            opponents.add(new Player("Opponent", 20));
+            opponents.add(new HearthclonePlayer("Opponent", 20));
         }
     }
     
@@ -169,4 +169,134 @@ public class Campaign {
     public ArrayList<Player> getOpponents() {
         return opponents;
     }
+    
+    
+    /***************************************
+    SAVE & LOAD GAME STATES
+    ***************************************/
+    
+     /*
+    During a duel on the player's turn, a valid move can be to save the current
+    game state with each player's boards, hand, and deck.
+    
+    public void SaveGameState() throws IOException{
+        //Save the same information as a normal save
+        //the non-append constructor for FileWriter clears the file when called
+        BufferedWriter bw = new BufferedWriter(new FileWriter("save.txt"));
+        
+        bw.write(getPlayer().getName()); //player name
+        bw.newLine();
+        bw.write(getPlayer().getHealth()); //current player hp
+        bw.newLine();
+        bw.write(getWinCount() + ""); //win count
+        bw.newLine();
+        bw.write(opponents.size() + ""); //opponents left
+        
+        //save the player's card collection
+        for(int i = 0; i < player.getCards().getSize(); i++){
+            bw.write(player.getCards().get(i).getName());
+            bw.newLine();
+        }
+        
+        //save the player's hand
+        bw.write("#P1HAND");
+        bw.newLine();
+        for(int i = 0; i < player.getHand().getSize(); i++){
+            bw.write(player.getHand().get(i));
+            bw.newLine();
+        }
+        
+        //save the player's board
+        bw.write("#P1BD");
+        bw.newLine();
+        for(int i = 0; i < player.field.getCards().getSize(); i++){
+            bw.write(player.field.getCards().get(i));
+            bw.newLine();
+        }
+        
+        //save the player's graveyard
+        bw.write("#P1GY");
+        bw.newLine();
+        
+        //place marker for next player's information
+        bw.write("#PLAYER2");
+        bw.newLine();
+        bw.write(getPlayer().getHealth()); //current opponent hp
+        bw.newLine();
+        
+        //save the opponent's hand
+        bw.write("#P2HAND");
+        bw.newLine();
+        for(int i = 0; i < player.opponent.getHand().getSize(); i++){
+            bw.write(player.opponent.getHand().get(i));
+            bw.newLine();
+        }
+        
+        //save the opponent's board
+        bw.write("#P2BD");
+        bw.newLine();
+        for(int i = 0; i < player.opponent.field.getCards().getSize(); i++){
+            bw.write(player.opponent.field.getCards().get(i));
+            bw.newLine();
+        }
+        
+        //save the opponent's graveyard
+        bw.write("#P2GY");
+        bw.newLine();
+        
+        bw.close();
+    }*/
+
+    
+    /*
+    A menu action will later be implemented to allow a game state to be loaded
+    from any menu
+    
+    public void LoadGameState() throws FileNotFoundException, IOException{
+        BufferedReader br = new BufferedReader(new FileReader("save.txt"));
+        
+        String name = br.readLine();
+        int startingHealth = Integer.parseInt(br.readLine());
+        int wins = Integer.parseInt(br.readLine());
+        int numOpponents = Integer.parseInt(br.readLine());
+
+        //populate local information with info from file
+        player = new HearthclonePlayer(name, startingHealth);
+        winCount = wins;
+        addOpponents(numOpponents);
+        
+        String input = br.readLine(); //get #P1HAND
+        while(!"#P1BD".equals(input)){
+            //player.getHand().addCard(input) //implement switch statement later to add specific cards based on input
+            input = br.readLine();
+        }
+        while(!"#P1GY".equals(input)){
+            //player.getField().addCard(input) //implement switch statement later to add specific cards based on input
+            input = br.readLine();
+        }
+        while(!"#PLAYER2".equals(input)){
+            //player.getGY().addCard(input) //implement switch statement later to add specific cards based on input
+            input = br.readLine();
+        }
+        HearthclonePlayer opponent = new HearthclonePlayer(); //make opponent
+        while(!"#P2BD".equals(input)){
+            //opponent.getHand().addCard(input) //implement switch statement later to add specific cards based on input
+            input = br.readLine();
+        }
+        while(!"#P2GY".equals(input)){
+            //opponent.getField().addCard(input) //implement switch statement later to add specific cards based on input
+            input = br.readLine();
+        }
+        while(input != null){
+            //opponent.getGY().addCard(input) //implement switch statement later to add specific cards based on input
+            input = br.readLine();
+        }
+        
+        br.close();
+        
+        //From here, call new mid-game duel with loaded players and info
+        RunDuel(player1, player2);
+        */
+    }
+    
 }
