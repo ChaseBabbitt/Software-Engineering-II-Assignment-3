@@ -51,6 +51,18 @@ public class HearthcloneCardFactory implements CardFactory{
 			break;
 		case 9:
 			card = new GurubashiAbilityDecoration(new DamageDecoration(new GurubashiBerserker()));
+		
+		case 10:
+			card = new BattlecryDecoration(new AbusiveSergeant());
+		case 11:
+			card = new BattlecryDecoration(new AncientShieldbearer());
+		case 12:
+			card = new BattlecryDecoration(new AyaBlackpaw());
+		case 13:
+			card = new BattlecryDecoration(new BigGameHunter());
+		case 14:
+			card = new BattlecryDecoration(new BigtimeRacketeer());
+
 		}
 		return card;
 	}
@@ -77,6 +89,18 @@ public class HearthcloneCardFactory implements CardFactory{
 			return new DamageDecoration(new MurlocRaider());
 		else if(cardname.equals("Gurubashi Berkserker"))
 			return new GurubashiAbilityDecoration(new DamageDecoration(new GurubashiBerserker()));
+		else if(cardname.equals("Abusive Sergeant"))
+			return new BattlecryDecoration(new DamageDecoration(new AbusiveSergeant()));
+		else if(cardname.equals("Ancient Shieldbearer"))
+			return new BattlecryDecoration(new DamageDecoration(new AncientShieldbearer()));
+		else if(cardname.equals("Aya Blackpaw"))
+			return new BattlecryDecoration(new DamageDecoration(new AyaBlackpaw()));
+		else if(cardname.equals("Big Game Hunter"))
+			return new BattlecryDecoration(new DamageDecoration(new BigGameHunter()));
+		else if(cardname.equals("Big-Time Racketeer"))
+			return new BattlecryDecoration(new DamageDecoration(new BigtimeRacketeer()));
+		
+		
 		return null;
 	}
 
