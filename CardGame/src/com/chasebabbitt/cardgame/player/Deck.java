@@ -19,6 +19,14 @@ public class Deck {
 		}		
 	}
 	/**
+	 * Initialize a deck with a given list of cards
+	 * @param deck
+	 */
+	public Deck(ArrayList<Card> deck){
+		cards = new ArrayList<Card>();
+		cards = deck;
+	}
+	/**
 	 * Returns the number of cards left in the deck
 	 * @return the number of cards in the deck
 	 */

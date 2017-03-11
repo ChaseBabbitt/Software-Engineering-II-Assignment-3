@@ -56,6 +56,29 @@ public class Player {
 		maxresources = 0;
 		currentresources = 0;
 	}
+	/***
+	 * initialize player with a given set of cards to be a deck
+	 * @param name
+	 * @param health
+	 * @param I_deck
+	 */
+	public Player(String name,int health, ArrayList<Card> I_deck){
+		this.name = name;
+		this.startinghealth = health;
+		this.health = startinghealth;
+		
+
+		deck = new Deck(I_deck);
+		field = new Field();
+		hand = new Hand();
+		graveyard = new Graveyard();
+		
+		attackingcards = new ArrayList<Card>();
+		defendingcards = new ArrayList<Card>();
+		
+		maxresources = 0;
+		currentresources = 0;
+	}
 
 	/**
 	 * Method for dealing damage to a player, reduces the player's health by attackPoints
