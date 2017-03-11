@@ -12,6 +12,7 @@ public class AyaBlackpaw extends Card {
 		defensepoints = 3;
 		cost = 6;
 		keywords = 0;
+		tapped=true;
 		//Battlecry and Deathrattle: Sumon a Jade Golem
 	}
 

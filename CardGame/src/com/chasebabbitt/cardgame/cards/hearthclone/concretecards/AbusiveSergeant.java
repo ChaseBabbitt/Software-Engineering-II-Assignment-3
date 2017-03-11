@@ -12,6 +12,7 @@ public class AbusiveSergeant extends Card {
 		defensepoints = 1;
 		cost = 1;
 		keywords = 0;
+		tapped = true;
 		//Battlecry: give a minion +2 attack this turn
 	}
 

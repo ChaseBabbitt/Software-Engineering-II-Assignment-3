@@ -12,6 +12,7 @@ public class BigGameHunter extends Card {
 		defensepoints = 2;
 		cost = 5;
 		keywords = 0;
+		tapped=true;
 		//Battlecry: Destroy a minion with 7 or more attack
 	}
 

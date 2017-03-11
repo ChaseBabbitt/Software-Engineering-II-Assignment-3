@@ -13,6 +13,7 @@ public class BloodsailCorsair extends Card {
 		defensepoints = 2;
 		cost = 1;
 		keywords = 0;
+		tapped=true;
 		//deal 1 damage to target
 	}
 

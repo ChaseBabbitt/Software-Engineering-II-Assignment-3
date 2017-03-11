@@ -9,6 +9,7 @@ public class BlowgillSniper extends Card{
 		defensepoints = 1;
 		cost = 2;
 		keywords = 0;
+		tapped=true;
 		//deal 1 damage to target
 	}
 

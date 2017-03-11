@@ -9,6 +9,7 @@ public class BluegillWarrior extends Card{
 		defensepoints = 1;
 		cost = 2;
 		keywords = 0; //Charge
+		tapped=true;
 	}
 
 }

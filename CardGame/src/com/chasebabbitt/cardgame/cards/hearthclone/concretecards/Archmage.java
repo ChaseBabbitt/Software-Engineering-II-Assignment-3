@@ -12,6 +12,7 @@ public class Archmage extends Card {
 		defensepoints = 7;
 		cost = 6;
 		keywords = 0;
+		tapped=true;
 		//Spell damage +1
 	}
 

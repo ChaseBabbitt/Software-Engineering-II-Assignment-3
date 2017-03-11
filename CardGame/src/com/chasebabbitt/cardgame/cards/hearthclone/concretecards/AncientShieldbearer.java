@@ -13,6 +13,7 @@ public class AncientShieldbearer extends Card {
 	defensepoints = 6;
 	cost = 7;
 	keywords = 0;
+	tapped=true;
 	//Battlecry: If your C'thun has at least 10 attack, gain 10 armor
 	}
 }
