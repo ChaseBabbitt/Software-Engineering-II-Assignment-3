@@ -38,7 +38,7 @@ public class HearthCloneAggroControlStrategy implements Strategy{
 				for(Card c : LegalTargets){
 					for(Card k : ReadyCards){
 						if(k.getAttackPoints()>c.getDefensePoints()&&k.getDefensePoints()>c.getAttackPoints()){
-							move = new BlockedAttack(k,c,Attacker,Defender);
+							move = new HCMvMMove(k,c,Attacker,Defender);
 							return move;
 						}
 					}
@@ -49,7 +49,7 @@ public class HearthCloneAggroControlStrategy implements Strategy{
 						attack = k;
 					}
 				}
-				move = new BlockedAttack(attack,LegalTargets.get(0),Attacker,Defender);
+				move = new HCMvMMove(attack,LegalTargets.get(0),Attacker,Defender);
 				return move;
 				
 			}
@@ -59,18 +59,18 @@ public class HearthCloneAggroControlStrategy implements Strategy{
 				for(Card c : LegalTargets){
 					for(Card k : ReadyCards){
 						if(k.getAttackPoints()>c.getDefensePoints()&&k.getDefensePoints()>c.getAttackPoints()){
-							move = new BlockedAttack(k,c,Attacker,Defender);
+							move = new HCMvMMove(k,c,Attacker,Defender);
 							return move;
 						}
 					}
 				}
-				move = new UnblockedAttack(ReadyCards.get(0),Attacker,Defender);
+				move = new HCMvPMove(ReadyCards.get(0),Attacker,Defender);
 				return move;
 			}
 			//if there are no cards with taunt attack the player
 			if(LegalTargets.size()==0){
 				ReadyCards.get(0).exhaust();
-				move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
+				move = new HCMvPMove(ReadyCards.get(0), Attacker, Defender);
 				return move;
 			}
 		}

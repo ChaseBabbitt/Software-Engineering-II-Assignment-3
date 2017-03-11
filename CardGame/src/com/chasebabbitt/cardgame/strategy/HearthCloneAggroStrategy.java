@@ -36,7 +36,7 @@ public class HearthCloneAggroStrategy implements Strategy {
 				}
 				else{
 					ReadyCards.get(0).exhaust();
-					move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
+					move = new HCMvPMove(ReadyCards.get(0), Attacker, Defender);
 					return move;
 				}
 			}
@@ -45,7 +45,7 @@ public class HearthCloneAggroStrategy implements Strategy {
 			
 			else{
 				ReadyCards.get(0).exhaust();
-				move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
+				move = new HCMvPMove(ReadyCards.get(0), Attacker, Defender);
 				return move;
 			}
 		}
@@ -141,7 +141,7 @@ public class HearthCloneAggroStrategy implements Strategy {
 				}
 			}
 			if(Attacker.getAttackPoints()>c.getDefensePoints()){
-				move = new BlockedAttack(Attacker,c,one,two);
+				move = new HCMvMMove(Attacker,c,one,two);
 				return move;
 			}
 		}
@@ -157,7 +157,7 @@ public class HearthCloneAggroStrategy implements Strategy {
 				Defender = c;
 			}
 		}
-		move = new BlockedAttack(Attacker,Defender,one,two);
+		move = new HCMvMMove(Attacker,Defender,one,two);
 		return move;
 		
 	}

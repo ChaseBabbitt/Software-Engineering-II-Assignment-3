@@ -45,7 +45,7 @@ Move move = null;
 			//if there are no cards with taunt attack the player
 			else{
 				ReadyCards.get(0).exhaust();
-				move = new UnblockedAttack(ReadyCards.get(0), Attacker, Defender);
+				move = new HCMvPMove(ReadyCards.get(0), Attacker, Defender);
 				return move;
 			}
 		}
@@ -165,7 +165,7 @@ Move move = null;
 				}
 			}
 			if(Attacker.getAttackPoints()>c.getDefensePoints()){
-				move = new BlockedAttack(Attacker,c,one,two);
+				move = new HCMvMMove(Attacker,c,one,two);
 				return move;
 			}
 		}
@@ -174,7 +174,7 @@ Move move = null;
 				for(int k = 0;k<Ready.size()-1;k++){
 					for(int i = k+1; i < Ready.size();i++){
 						if(c.getDefensePoints()-(Ready.get(k).getAttackPoints()+Ready.get(i).getAttackPoints())==0){
-							move = new BlockedAttack(Ready.get(i),c,one,two);
+							move = new HCMvMMove(Ready.get(i),c,one,two);
 							return move;
 						}
 					}
@@ -193,7 +193,7 @@ Move move = null;
 				Defender = c;
 			}
 		}
-		move = new BlockedAttack(Attacker,Defender,one,two);
+		move = new HCMvMMove(Attacker,Defender,one,two);
 		return move;
 		
 	}
