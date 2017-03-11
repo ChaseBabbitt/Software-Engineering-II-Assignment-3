@@ -3,6 +3,7 @@ package com.chasebabbitt.cardgame.strategy;
 import java.util.ArrayList;
 
 import com.chasebabbitt.cardgame.cards.Card;
+import com.chasebabbitt.cardgame.player.HearthclonePlayer;
 import com.chasebabbitt.cardgame.player.Player;
 
 public class HearthCloneAggroControlStrategy implements Strategy{
@@ -64,13 +65,13 @@ public class HearthCloneAggroControlStrategy implements Strategy{
 						}
 					}
 				}
-				move = new HCMvPMove(ReadyCards.get(0),Attacker,Defender);
+				move = new HCMvPMove(ReadyCards.get(0),(HearthclonePlayer)Attacker,(HearthclonePlayer)Defender);
 				return move;
 			}
 			//if there are no cards with taunt attack the player
 			if(LegalTargets.size()==0){
 				ReadyCards.get(0).exhaust();
-				move = new HCMvPMove(ReadyCards.get(0), Attacker, Defender);
+				move = new HCMvPMove(ReadyCards.get(0),(HearthclonePlayer) Attacker,(HearthclonePlayer) Defender);
 				return move;
 			}
 		}

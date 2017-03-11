@@ -1,6 +1,7 @@
 package com.chasebabbitt.cardgame.strategy;
 
 import com.chasebabbitt.cardgame.cards.Card;
+import com.chasebabbitt.cardgame.player.HearthclonePlayer;
 import com.chasebabbitt.cardgame.player.Player;
 import java.util.ArrayList;
 
@@ -45,7 +46,7 @@ Move move = null;
 			//if there are no cards with taunt attack the player
 			else{
 				ReadyCards.get(0).exhaust();
-				move = new HCMvPMove(ReadyCards.get(0), Attacker, Defender);
+				move = new HCMvPMove(ReadyCards.get(0),(HearthclonePlayer) Attacker, (HearthclonePlayer)Defender);
 				return move;
 			}
 		}

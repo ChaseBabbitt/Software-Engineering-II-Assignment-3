@@ -3,7 +3,7 @@ package com.chasebabbitt.cardgame.strategy;
 import java.util.ArrayList;
 
 import com.chasebabbitt.cardgame.cards.Card;
-import com.chasebabbitt.cardgame.player.Player;
+import com.chasebabbitt.cardgame.player.*;
 
 public class HearthCloneAggroStrategy implements Strategy {
 
@@ -36,7 +36,7 @@ public class HearthCloneAggroStrategy implements Strategy {
 				}
 				else{
 					ReadyCards.get(0).exhaust();
-					move = new HCMvPMove(ReadyCards.get(0), Attacker, Defender);
+					move = new HCMvPMove(ReadyCards.get(0), (HearthclonePlayer)Attacker, (HearthclonePlayer)Defender);
 					return move;
 				}
 			}
@@ -45,7 +45,7 @@ public class HearthCloneAggroStrategy implements Strategy {
 			
 			else{
 				ReadyCards.get(0).exhaust();
-				move = new HCMvPMove(ReadyCards.get(0), Attacker, Defender);
+				move = new HCMvPMove(ReadyCards.get(0), (HearthclonePlayer)Attacker, (HearthclonePlayer)Defender);
 				return move;
 			}
 		}
