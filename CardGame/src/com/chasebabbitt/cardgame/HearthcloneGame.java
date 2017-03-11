@@ -11,6 +11,7 @@ public class HearthcloneGame {
 	public static void main(String[] args) {
 		HearthclonePlayer player1 = new HearthclonePlayer("Player 1", 20);
 		HearthclonePlayer player2 = new HearthclonePlayer("Player 2", 20);
+		player1.setManualStrategy();
 		Player winner;
 		HearthcloneDuel duel = new HearthcloneDuel(player1,player2);
 		winner = duel.play();

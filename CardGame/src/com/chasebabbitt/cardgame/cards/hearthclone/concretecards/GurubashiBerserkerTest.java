@@ -32,10 +32,10 @@ public class GurubashiBerserkerTest {
 	public void test2(){
 		System.out.println(card.toString());
 		assertEquals(card.getAttackPoints(),2);
-		card.dealDamage(1);
+		card.dealDamage(1,null,null);
 		System.out.println(card.toString());
 		assertEquals(card.getAttackPoints(),5);
-		card.dealDamage(1);
+		card.dealDamage(1,null,null);
 		assertEquals(card.getAttackPoints(),8);
 		System.out.println(card.toString());
 	}

@@ -37,11 +37,11 @@ public class SilvermoonGuardianTest {
 	@Test  
 	public void test2(){
 		
-		card.dealDamage(1);
+		card.dealDamage(1,null,null);
 		assertEquals(card.hasKeyword(HearthcloneAbilitiesDecorator.DIVINESHIELD), false);
 		assertEquals(card.getKeywords(),0);
 		assertEquals(card.getHealth(), 3);
-		card.dealDamage(1);
+		card.dealDamage(1,null,null);
 		assertEquals(card.getHealth(), 2);
 	}
 
